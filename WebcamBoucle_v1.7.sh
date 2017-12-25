@@ -46,7 +46,7 @@ if [ "$Now" -gt "$horodatage" ]
  sh /home/pi/webcamgas/analyseimage_v1.0.sh
 
  #lancement du script Python permettant l'analyse de l'image, le stockage en csv, l'envoi vers ThingSpeak 
- python3 /home/pi/webcamgas/digitsSVM.py >> digits-errors.txt 2>&1
+ python3 /home/pi/webcamgas/digits_recognition.py >> digits-errors.txt 2>&1
 
  #deplacement de l'image vers dossier du jour
  mv /home/pi/Documents/Captures_webcam/capture/*.jpeg  $dossierjour

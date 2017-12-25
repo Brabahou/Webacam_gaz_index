@@ -56,7 +56,7 @@ with open('gaz-digits3MLP.pkl', 'rb') as fichier:
 
 #index de la valeur max de sortie du classifieur 
 #qui correspond au chiffre identifié, pour chaque image
-index=list(np.nonzero(classifier.predict(image))[1])
+index=list(np.nonzero(classifier.predict(images))[1])
 #concatenation de la liste des vlaeurs en un seul nombre
 index = str(index)[1:-1].replace(" ", "").replace(",", "")
 

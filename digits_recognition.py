@@ -6,9 +6,6 @@
 #module python3 d'anlayse de valeur dans l'image
 ##########__WEBCAM-GAS__#####################
 
-# Import datasets, classifiers and performance metrics
-#from sklearn import datasets, svm, metrics
-
 
 import matplotlib
 # use a non-interactive backend 
@@ -57,12 +54,11 @@ with open('gaz-digits3MLP.pkl', 'rb') as fichier:
      mon_depickler = pickle.Unpickler(fichier)
      classifier = mon_depickler.load()
 
-#prediction des images sous forme de liste
-index = classifier.predict(images)
-
-
-#mise sous forme de str sans espace
-index = str(index)[1:-1].replace(" ", "")
+#index de la valeur max de sortie du classifieur 
+#qui correspond au chiffre identifié, pour chaque image
+index=list(np.nonzero(classifier.predict(image))[1])
+#concatenation de la liste des vlaeurs en un seul nombre
+index = str(index)[1:-1].replace(" ", "").replace(",", "")
 
 #recuperation du nom du fichier complet contenant la date & heure
 #sortie sous forme '29/03/2017 11:03:09'

@@ -37,13 +37,13 @@ if [ "$Now" -gt "$horodatage" ]
   fi
 
  #script de capture image via webcam
- sh /home/pi/webcamgas/captureimage_v1.0.sh
+ sh /home/pi/webcamgas/captureimage.sh
 
  #on ajoute 10 min à l'horodatage pour prochaine capture
  horodatage=$(date -d "+10 minutes" "+%Y%m%d%H%M%S") 
 
  #script de decoupe de l'image
- sh /home/pi/webcamgas/analyseimage_v1.0.sh
+ sh /home/pi/webcamgas/analyseimage.sh
 
  #lancement du script Python permettant l'analyse de l'image, le stockage en csv, l'envoi vers ThingSpeak 
  python3 /home/pi/webcamgas/digits_recognition.py >> digits-errors.txt 2>&1

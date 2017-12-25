@@ -53,7 +53,7 @@ imgs = [resize(img_i, (28, 28), mode='constant') for img_i in imgs]
 images=np.array(imgs).reshape(-1,28*28)
 
 #on charge le classifieur
-with open('gaz-digits.pkl', 'rb') as fichier:
+with open('gaz-digits3MLP.pkl', 'rb') as fichier:
      mon_depickler = pickle.Unpickler(fichier)
      classifier = mon_depickler.load()
 

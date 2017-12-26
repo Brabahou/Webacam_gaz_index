@@ -50,15 +50,16 @@ imgs = [resize(img_i, (28, 28), mode='constant') for img_i in imgs]
 images=np.array(imgs).reshape(-1,28*28)
 
 #on charge le classifieur
-with open('gaz-digits3MLP.pkl', 'rb') as fichier:
+with open('gaz-digits4MLP.pkl', 'rb') as fichier:
      mon_depickler = pickle.Unpickler(fichier)
      classifier = mon_depickler.load()
 
 #index de la valeur max de sortie du classifieur 
 #qui correspond au chiffre identifié, pour chaque image
-index=list(np.nonzero(classifier.predict(images))[1])
+index=list(classifier.predict(images))
+
 #concatenation de la liste des vlaeurs en un seul nombre
-index = str(index)[1:-1].replace(" ", "").replace(",", "")
+index = str(index)[1:-1].replace(", ", "")
 
 #recuperation du nom du fichier complet contenant la date & heure
 #sortie sous forme '29/03/2017 11:03:09'

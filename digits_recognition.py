@@ -69,7 +69,7 @@ timestamp=time[2]+'/'+time[1]+'/'+time[0]+' '+time[4]+':'+time[5]+':'+time[6]
 
 #enregistrement dans le fichier index
 with open('index.csv', 'a') as fichier:
-    fichier.write(timestamp+';'+index+';'+proba+'\n')
+    fichier.write(timestamp+';'+index+'\n')
     
 #envoi des données sur "Thingspeak"
 ts.sendthingspeak(timestamp,index)

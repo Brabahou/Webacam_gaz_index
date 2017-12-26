@@ -59,7 +59,7 @@ with open('gaz-digits4MLP.pkl', 'rb') as fichier:
 index=list(classifier.predict(images))
 
 #concatenation de la liste des vlaeurs en un seul nombre
-index = str(index)[1:-1].replace(", ", "")
+index = str(index)[1:-1].replace(",", "").replace(" ", "")
 
 #recuperation du nom du fichier complet contenant la date & heure
 #sortie sous forme '29/03/2017 11:03:09'
@@ -69,7 +69,7 @@ timestamp=time[2]+'/'+time[1]+'/'+time[0]+' '+time[4]+':'+time[5]+':'+time[6]
 
 #enregistrement dans le fichier index
 with open('index.csv', 'a') as fichier:
-    fichier.write(timestamp+';'+index+'\n')
+    fichier.write(timestamp+';'+index+';'+proba+'\n')
     
 #envoi des données sur "Thingspeak"
 ts.sendthingspeak(timestamp,index)

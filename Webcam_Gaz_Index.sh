@@ -3,7 +3,8 @@
 ##########__WEBCAM-GAS__#####################
 #Programme  capture compteur Gaz RaspberryPi
 #JB Bailly
-#module principal v1.7
+#module principal v1.71
+#changement de 5min de roulement + gaz-digits5MLP.pkl
 ##########__WEBCAM-GAS__#####################
 
 gpio mode 0 out 		#check de la sortie du pin de la LED
@@ -40,7 +41,7 @@ if [ "$Now" -gt "$horodatage" ]
  sh /home/pi/webcamgas/captureimage.sh
 
  #on ajoute 10 min à l'horodatage pour prochaine capture
- horodatage=$(date -d "+10 minutes" "+%Y%m%d%H%M%S") 
+ horodatage=$(date -d "+5 minutes" "+%Y%m%d%H%M%S") 
 
  #script de decoupe de l'image
  sh /home/pi/webcamgas/analyseimage.sh
